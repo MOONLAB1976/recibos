@@ -1,0 +1,653 @@
+<!doctype html><html><head><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Recibos Condomínio Rua de Vilar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600&display=swap">
+<style>
+/* Layout: ferramenta de duas colunas — formulário à esquerda, folha do recibo (papel) à direita; separadores no topo */
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#18212C; --muted:#5A6573; --line:#D5DBE2;
+  --accent:#2A4D9B; --accent-soft:#E3E9F6; --ok:#1F7A4D; --danger:#B3261E; --danger-soft:#FBE9E7;
+  --paper:#FFFFFF; --paper-ink:#141414; --paper-muted:#555; --paper-line:#BFBFBF;
+  --f-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-doc:"IBM Plex Serif",Georgia,serif;
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11151B; --surface:#1A2029; --ink:#E5E9EF; --muted:#9BA6B3; --line:#2D3643;
+  --accent:#8EA8EE; --accent-soft:#232E45; --ok:#5CC08E; --danger:#F08A80; --danger-soft:#3A2220; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11151B; --surface:#1A2029; --ink:#E5E9EF; --muted:#9BA6B3; --line:#2D3643;
+  --accent:#8EA8EE; --accent-soft:#232E45; --ok:#5CC08E; --danger:#F08A80; --danger-soft:#3A2220; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.45}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:grid;gap:18px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+header.top h1{font-family:var(--f-doc);font-size:1.6rem;margin:0;text-wrap:balance}
+header.top p{margin:2px 0 0;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 14px;border-radius:999px;font:inherit;font-weight:500;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.banner{padding:10px 14px;border-radius:var(--r);background:var(--accent-soft);color:var(--ink);font-size:.95rem}
+.banner.warn{background:var(--danger-soft)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:18px;align-items:start}
+@media (max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:16px;min-width:0}
+.panel h2{font-size:1.05rem;margin:0;letter-spacing:.02em}
+.sec{display:grid;gap:10px}
+.sec>.lbl{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+label.f{display:grid;gap:4px;font-size:.88rem;color:var(--muted);min-width:0}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%;min-width:0}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+button.btn{font:inherit;font-weight:600;border-radius:6px;padding:10px 14px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.btn.danger{color:var(--danger);border-color:var(--danger)}
+button.btn.sm{padding:6px 10px;font-size:.88rem;font-weight:500}
+button.btn:disabled{opacity:.5;cursor:not-allowed}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-size:.88rem;border:1px dashed var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:5px 11px;cursor:pointer}
+.lines{display:grid;gap:8px}
+.line{display:grid;grid-template-columns:minmax(0,1fr) 150px 110px auto;gap:8px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:6px}
+.line.zero{opacity:.6}
+@media (max-width:560px){.line{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.line .desc{grid-column:1/-1}}
+.iconbtn{border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:4px 8px;border-radius:4px}
+.iconbtn:hover{color:var(--ink);background:var(--bg)}
+.totalbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--line)}
+.totalbar strong{font-size:1.4rem;font-variant-numeric:tabular-nums}
+.hint{color:var(--muted);font-size:.88rem;margin:0}
+/* Folha do recibo */
+.paperwrap{overflow-x:auto;min-width:0}
+.paper{background:var(--paper);color:var(--paper-ink);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.12),0 8px 24px rgba(0,0,0,.08);padding:32px 30px;min-width:520px;font-size:15px;line-height:1.45;position:relative}
+.paper .hd{display:flex;justify-content:space-between;gap:16px}
+.paper .cond b{font-size:16px}
+.paper .rn{text-align:right}
+.paper .rn .n{font-family:var(--f-doc);font-size:22px}
+.paper .rn small{color:var(--paper-muted);display:block}
+.paper .to{margin:22px 0 0 48%}
+.paper .pay{margin-top:24px;font-weight:700}
+.paper table{width:100%;border-collapse:collapse;margin-top:12px;font-variant-numeric:tabular-nums}
+.paper th{text-align:left;font-size:14px;border-bottom:1.5px solid var(--paper-ink);padding:6px 4px}
+.paper td{padding:6px 4px;border-bottom:1px solid var(--paper-line)}
+.paper td.v,.paper th.v{text-align:right}
+.paper tfoot td{border:none;font-weight:700;padding-top:10px}
+.paper .foot{margin-top:18px;font-size:13px;color:var(--paper-muted)}
+.paper .sig{margin-top:40px;display:flex;justify-content:flex-end}
+.paper .sig div{text-align:center;min-width:220px;border-top:1px solid var(--paper-ink);padding-top:6px;font-size:14px}
+.paper .adm{margin-top:28px;border-top:1px solid var(--paper-line);padding-top:8px;font-size:13px;color:var(--paper-muted)}
+.paper .empty{color:var(--paper-muted);font-style:italic}
+/* Tabelas de gestão */
+.tbl{overflow-x:auto}
+.tbl table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.95rem}
+.tbl th{text-align:left;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.pill{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.pill.x{background:var(--danger-soft);color:var(--danger)}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{flex:1 1 160px;border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;background:var(--surface)}
+.stat span{display:block;color:var(--muted);font-size:.82rem}
+.stat b{font-size:1.25rem;font-variant-numeric:tabular-nums}
+.confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px;border-radius:6px;background:var(--danger-soft);margin-top:6px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--surface);padding:11px 18px;border-radius:8px;font-weight:500;max-width:calc(100% - 32px);z-index:5}
+.err{color:var(--danger);font-size:.9rem;margin:0}
+@media (prefers-reduced-motion:no-preference){.toast{transition:opacity .2s}}
+.lock{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;padding:24px}
+.lock form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;width:min(360px,100%);display:grid;gap:14px}
+.lock h1{font-family:var(--f-doc);font-size:1.4rem;margin:0}
+.lock input{font:inherit;font-size:1.4rem;letter-spacing:.3em;text-align:center;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.lock .err{color:var(--danger);margin:0}
+body.locked .wrap{display:none}
+</style>
+
+<div class="lock" id="lock">
+  <form id="lock-form" autocomplete="off">
+    <h1>Recibos do Condomínio</h1>
+    <label for="lock-email">Email</label>
+    <input id="lock-email" type="email" autocomplete="username" required style="letter-spacing:normal;text-align:left;font-size:1rem">
+    <label for="lock-pass">Palavra-passe</label>
+    <input id="lock-pass" type="password" autocomplete="current-password" required style="letter-spacing:normal;text-align:left;font-size:1rem">
+    <label for="lock-pin">Código de acesso</label>
+    <input id="lock-pin" type="password" inputmode="numeric" autocomplete="off" required>
+    <p class="err" id="lock-err" hidden></p>
+    <button class="btn primary" type="submit" id="lock-btn">Entrar</button>
+  </form>
+</div>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Recibos do Condomínio</h1>
+      <p id="subt">Condomínio Rua de Vilar, n.º 860 a 870 · Alfena</p>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="novo" aria-selected="true">Novo recibo</button>
+      <button role="tab" data-tab="hist" aria-selected="false">Histórico</button>
+      <button role="tab" data-tab="cond" aria-selected="false">Condóminos</button>
+      <button role="tab" data-tab="def" aria-selected="false">Dados do condomínio</button>
+      <button type="button" id="b-lock" style="border-style:dashed">Bloquear</button>
+    </nav>
+  </header>
+  <div id="banner" class="banner" hidden></div>
+
+  <!-- NOVO RECIBO -->
+  <section id="t-novo" class="grid2">
+    <div class="panel">
+      <div class="sec">
+        <div class="lbl">Condómino</div>
+        <select id="d-cond"></select>
+        <p class="hint" id="d-cond-hint"></p>
+      </div>
+      <div class="sec">
+        <div class="lbl">Pagamento</div>
+        <div class="row">
+          <label class="f">Data de pagamento<input type="date" id="d-data"></label>
+          <label class="f">Forma de pagamento
+            <select id="d-metodo">
+              <option>Transferência</option><option>Numerário</option><option>MB Way</option><option>Multibanco</option><option>Cheque</option>
+            </select></label>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="lbl">Valores recebidos</div>
+        <div class="chips" id="d-presets"></div>
+        <div class="lines" id="d-lines"></div>
+        <p class="hint">As linhas com valor 0 não aparecem no recibo. Use ⧉ para repetir uma linha no mês seguinte.</p>
+      </div>
+      <label class="f">Observações (opcional)<textarea id="d-obs" rows="2" placeholder="Ex.: pagamento das quotas de janeiro a março"></textarea></label>
+      <div class="totalbar">
+        <div><span class="hint">Total</span><br><strong id="d-total">0,00 €</strong></div>
+        <button class="btn primary" id="d-emit">Emitir e descarregar PDF</button>
+      </div>
+      <p class="err" id="d-err" hidden></p>
+    </div>
+    <div class="paperwrap"><div class="paper" id="preview"></div></div>
+  </section>
+
+  <!-- HISTÓRICO -->
+  <section id="t-hist" class="panel" hidden>
+    <div class="stats" id="h-stats"></div>
+    <div class="row">
+      <label class="f">Procurar<input id="h-q" placeholder="Nome, fração ou n.º"></label>
+      <label class="f">Ano<select id="h-ano"></select></label>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>N.º</th><th>Data pag.</th><th>Condómino</th><th>Referente a</th><th class="num">Total</th><th>Estado</th><th></th></tr></thead>
+      <tbody id="h-body"></tbody>
+    </table></div>
+  </section>
+
+  <!-- CONDÓMINOS -->
+  <section id="t-cond" class="grid2" hidden>
+    <div class="panel">
+      <h2>Condóminos</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>Fração</th><th>Nome</th><th class="num">Quota</th><th class="num">F. Reserva</th><th></th></tr></thead>
+        <tbody id="c-body"></tbody>
+      </table></div>
+    </div>
+    <form class="panel" id="c-form">
+      <h2 id="c-title">Adicionar condómino</h2>
+      <input type="hidden" id="c-id">
+      <div class="row">
+        <label class="f">Fração<input id="c-fracao" required placeholder="E - 1.º Dt.º"></label>
+        <label class="f">NIF (opcional)<input id="c-nif" inputmode="numeric"></label>
+      </div>
+      <label class="f">Nome completo<input id="c-nome" required></label>
+      <label class="f">Morada<input id="c-morada" placeholder="Rua de Vilar, n.º 864, 1.º Dt.º"></label>
+      <label class="f">Código postal e localidade<input id="c-cp" placeholder="4445-235 Alfena"></label>
+      <div class="row">
+        <label class="f">Quota mensal (€)<input id="c-quota" class="num" inputmode="decimal" placeholder="0,00"></label>
+        <label class="f">Fundo de reserva (€)<input id="c-fcr" class="num" inputmode="decimal" placeholder="0,00"></label>
+      </div>
+      <div class="acts">
+        <button class="btn primary" type="submit">Guardar</button>
+        <button class="btn" type="button" id="c-cancel" hidden>Cancelar</button>
+      </div>
+      <p class="hint">A quota e o fundo de reserva entram automaticamente no recibo quando escolhe este condómino.</p>
+    </form>
+  </section>
+
+  <!-- DEFINIÇÕES -->
+  <form id="t-def" class="panel" hidden>
+    <h2>Dados que aparecem no recibo</h2>
+    <label class="f">Nome do condomínio<input id="s-nome"></label>
+    <div class="row">
+      <label class="f">Morada<input id="s-morada"></label>
+      <label class="f">Código postal e localidade<input id="s-cp"></label>
+      <label class="f">NIF do condomínio<input id="s-nif"></label>
+    </div>
+    <div class="row">
+      <label class="f">Administração<input id="s-adm"></label>
+      <label class="f">Telefone (opcional)<input id="s-tel"></label>
+      <label class="f">Email (opcional)<input id="s-email"></label>
+    </div>
+    <div class="row">
+      <label class="f">Nota fiscal<input id="s-iva"></label>
+      <label class="f">Próximo n.º de recibo (só se não houver recibos)<input id="s-ini" class="num" inputmode="numeric"></label>
+    </div>
+    <div class="acts"><button class="btn primary" type="submit">Guardar dados</button></div>
+    <h2 style="margin-top:28px">Cópia de segurança</h2>
+    <p class="hint">Os dados ficam guardados online, cifrados, e aparecem em qualquer computador depois de entrar. Mesmo assim, exporte uma cópia de segurança uma vez por mês e guarde-a numa pen ou no email.</p>
+    <div class="acts">
+      <button class="btn" type="button" id="b-exp">Exportar cópia de segurança</button>
+      <button class="btn" type="button" id="b-imp">Importar cópia de segurança</button>
+      <input type="file" id="b-file" accept=".json,application/json" hidden>
+    </div>
+    <div id="b-confirm" class="confirm" hidden></div>
+  </form>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ==== CONFIGURAÇÃO DO FIREBASE — substituir pelos valores do projeto ==== */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAGisTVo4OzsvUfAKNrr50OdqOxKjJB1vI",
+  authDomain: "recibos-condominio-1976.firebaseapp.com",
+  projectId: "recibos-condominio-1976",
+  appId: "1:616827850960:web:d37610d41b7c053496ced5"
+};
+</script>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const eur = v => (Math.round((+v||0)*100)/100).toLocaleString("pt-PT",{minimumFractionDigits:2,maximumFractionDigits:2});
+const parseNum = s => { if (typeof s === "number") return s; const n = parseFloat(String(s||"").replace(/\s|€/g,"").replace(",",".")); return isFinite(n)?Math.round(n*100)/100:0; };
+const pad = n => String(n).padStart(2,"0");
+const today = () => { const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };
+const thisMonth = () => today().slice(0,7);
+const fmtDate = s => s ? s.split("-").reverse().join("-") : "";
+const fmtMes = ym => { if(!ym) return ""; const [y,m]=ym.split("-"); return `${MESES[+m-1]} ${y}`; };
+const nextMes = ym => { let [y,m]=ym.split("-").map(Number); m++; if(m>12){m=1;y++;} return `${y}-${pad(m)}`; };
+
+/* ---------- Valor por extenso (pt-PT) ---------- */
+const U=["zero","um","dois","três","quatro","cinco","seis","sete","oito","nove","dez","onze","doze","treze","catorze","quinze","dezasseis","dezassete","dezoito","dezanove"];
+const T=["","","vinte","trinta","quarenta","cinquenta","sessenta","setenta","oitenta","noventa"];
+const H=["","cento","duzentos","trezentos","quatrocentos","quinhentos","seiscentos","setecentos","oitocentos","novecentos"];
+function ate999(n){ if(n===100) return "cem"; const p=[]; const h=Math.floor(n/100), r=n%100;
+  if(h) p.push(H[h]); if(r){ if(r<20) p.push(U[r]); else { const t=Math.floor(r/10),u=r%10; p.push(u?`${T[t]} e ${U[u]}`:T[t]); } } return p.join(" e "); }
+function inteiro(n){ if(n===0) return "zero"; const th=Math.floor(n/1000), r=n%1000; let s="";
+  if(th) s = th===1 ? "mil" : ate999(th)+" mil";
+  if(r){ s += th ? ((r<100 || r%100===0) ? " e " : " ") : ""; s += ate999(r); } return s; }
+function extenso(v){ const c=Math.round(v*100), e=Math.floor(c/100), ct=c%100; const parts=[];
+  if(e) parts.push(inteiro(e)+(e===1?" euro":" euros"));
+  if(ct) parts.push(inteiro(ct)+(ct===1?" cêntimo":" cêntimos"));
+  return parts.length ? parts.join(" e ") : "zero euros"; }
+
+/* ---------- Estado ---------- */
+const DEF_CONFIG = { nome:"Condomínio Rua de Vilar, n.º 860 864 870", morada:"Rua de Vilar, 860", cp:"4445-235 Alfena", nif:"901402540",
+  adm:"Administração", tel:"", email:"", iva:"Isento de IVA nos termos do art.º 9.º, n.º 21 do CIVA", numeroInicial:1 };
+const PRESETS = [
+  {k:"quota", d:"Quota mensal (Orçamento)"},
+  {k:"fcr", d:"Fundo Comum de Reserva"},
+  {k:"desvio", d:"Desvio orçamental"},
+  {k:"extra", d:"Quota extraordinária"},
+  {k:"obras", d:"Comparticipação em obras"},
+  {k:"seguro", d:"Seguro do edifício"},
+  {k:"atraso", d:"Penalização por atraso"},
+  {k:"outro", d:""}
+];
+const S = { config:{...DEF_CONFIG}, condominos:[], recibos:[], db:null, downloads:null, tab:"novo",
+  draft:{ condId:"", data:today(), metodo:"Transferência", obs:"", linhas:[] } };
+let lineSeq = 0;
+const newLine = (d,valor=0,periodo=thisMonth()) => ({ id:++lineSeq, d, periodo, valor });
+S.draft.linhas = [ newLine(PRESETS[0].d), newLine(PRESETS[1].d) ];
+
+/* ---------- Guardar ---------- */
+const SALT=new TextEncoder().encode("recibos-rua-de-vilar-2026"), ITER=250000, VERIF="cJlhGOyqFeUhcVm1Z9YuV7LDolVSTbial6hVkOBHeT0=";
+let AESKEY=null;
+const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u)));
+const unb64=t=>Uint8Array.from(atob(t),c=>c.charCodeAt(0));
+async function derive(pin){
+  const base=await crypto.subtle.importKey("raw",new TextEncoder().encode(pin),"PBKDF2",false,["deriveBits"]);
+  const bits=new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",salt:SALT,iterations:ITER,hash:"SHA-256"},base,512));
+  if(b64(bits.slice(32))!==VERIF) return null;
+  return crypto.subtle.importKey("raw",bits.slice(0,32),"AES-GCM",false,["encrypt","decrypt"]);
+}
+async function enc(obj){ const iv=crypto.getRandomValues(new Uint8Array(12));
+  const ct=await crypto.subtle.encrypt({name:"AES-GCM",iv},AESKEY,new TextEncoder().encode(JSON.stringify(obj)));
+  return {iv:b64(iv), ct:b64(ct)}; }
+async function dec(o){ const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(o.iv)},AESKEY,unb64(o.ct)); return JSON.parse(new TextDecoder().decode(pt)); }
+let FB=null, REF=null, VERSAO=0;
+async function persist(){
+  try{
+    const cifrado=await enc({config:S.config, condominos:S.condominos, recibos:S.recibos});
+    await FB.db.runTransaction(async t=>{
+      const snap=await t.get(REF); const v=snap.exists?(snap.data().versao||0):0;
+      if(v!==VERSAO) throw new Error("conflito");
+      t.set(REF,{cifrado, versao:v+1, atualizadoEm:new Date().toISOString(), por:FB.auth.currentUser.email});
+    });
+    VERSAO++; return true;
+  }catch(e){
+    if(e.message==="conflito"){ await loadStore(); renderAll(); toast("Os dados foram alterados noutro computador. Já estão atualizados — repita a última ação."); }
+    else toast("Não foi possível guardar online. Verifique a internet e tente outra vez.");
+    return false;
+  } }
+function saveFile(blob, name){ const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); }
+
+/* ---------- UI helpers ---------- */
+let toastT;
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,3500); }
+function banner(msg,warn){ const b=$("banner"); if(!msg){b.hidden=true;return;} b.textContent=msg; b.className="banner"+(warn?" warn":""); b.hidden=false; }
+
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  S.tab=b.dataset.tab;
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected", x===b));
+  ["novo","hist","cond","def"].forEach(t=>$("t-"+t).hidden = t!==S.tab);
+  try{ localStorage.setItem("rec-tab",S.tab); }catch(e){}
+  renderAll();
+}));
+
+/* ---------- Novo recibo ---------- */
+function curCond(){ return S.condominos.find(c=>c.id===S.draft.condId) || null; }
+function activeLines(){ return S.draft.linhas.filter(l=>parseNum(l.valor)>0); }
+function draftTotal(){ return activeLines().reduce((a,l)=>a+parseNum(l.valor),0); }
+function nextNumero(){ const m = S.recibos.reduce((a,r)=>Math.max(a,r.numero||0),0); return Math.max(m+1, parseInt(S.config.numeroInicial)||1); }
+
+function renderCondSelect(){
+  const sel=$("d-cond");
+  const opts = [...S.condominos].sort((a,b)=>String(a.fracao).localeCompare(String(b.fracao),"pt"))
+    .map(c=>`<option value="${esc(c.id)}"${c.id===S.draft.condId?" selected":""}>${esc(c.fracao)} — ${esc(c.nome)}</option>`).join("");
+  sel.innerHTML = `<option value="">Escolher condómino…</option>` + opts;
+  $("d-cond-hint").textContent = S.condominos.length ? "" : "Ainda não há condóminos. Adicione-os no separador Condóminos.";
+}
+function renderPresets(){
+  $("d-presets").innerHTML = PRESETS.map(p=>`<button type="button" data-k="${p.k}">+ ${esc(p.d||"Outro valor")}</button>`).join("");
+}
+function renderLines(){
+  $("d-lines").innerHTML = S.draft.linhas.map(l=>`
+    <div class="line${parseNum(l.valor)>0?"":" zero"}" data-id="${l.id}">
+      <input class="desc" data-f="d" value="${esc(l.d)}" placeholder="Descrição" aria-label="Descrição">
+      <input type="month" data-f="periodo" value="${esc(l.periodo)}" aria-label="Mês a que se refere">
+      <input class="num" data-f="valor" inputmode="decimal" value="${l.valor?eur(l.valor):""}" placeholder="0,00" aria-label="Valor em euros">
+      <div class="acts"><button class="iconbtn" data-a="dup" title="Repetir no mês seguinte" aria-label="Repetir no mês seguinte">⧉</button><button class="iconbtn" data-a="del" title="Remover linha" aria-label="Remover linha">✕</button></div>
+    </div>`).join("") || `<p class="hint">Sem linhas. Use os botões acima para adicionar valores.</p>`;
+}
+function renderDraftMeta(){
+  $("d-data").value=S.draft.data; $("d-metodo").value=S.draft.metodo; $("d-obs").value=S.draft.obs;
+  $("d-total").textContent = eur(draftTotal())+" €";
+}
+
+function receiptModel(fromDraft, rec){
+  if(!fromDraft) return rec;
+  const c=curCond();
+  return { numero:nextNumero(), dataPagamento:S.draft.data, dataEmissao:today(), metodo:S.draft.metodo, obs:S.draft.obs.trim(),
+    condomino: c ? {nome:c.nome,nif:c.nif||"",fracao:c.fracao,morada:c.morada||"",cp:c.cp||""} : null,
+    linhas: activeLines().map(l=>({d:l.d.trim()||"Pagamento", periodo:l.periodo, valor:parseNum(l.valor)})),
+    total: Math.round(draftTotal()*100)/100, estado:"emitido", config:{...S.config} };
+}
+function renderPreview(){
+  const r=receiptModel(true), c=r.config;
+  const cond=r.condomino;
+  $("preview").innerHTML = `
+    <div class="hd">
+      <div class="cond"><b>${esc(c.nome)}</b><br>${esc(c.morada)}<br>${esc(c.cp)}<br>NIF: ${esc(c.nif)}</div>
+      <div class="rn"><div class="n">Recibo n.º ${r.numero}</div><small>Original</small><small>Emitido em ${fmtDate(r.dataEmissao)}</small></div>
+    </div>
+    <div class="to">${cond ? `Exmo(a). Sr.(a)<br><b>${esc(cond.nome)}</b><br>${esc(cond.morada)}<br>${esc(cond.cp)}${cond.nif?`<br>NIF: ${esc(cond.nif)}`:""}<br>Fração: ${esc(cond.fracao)}` : `<span class="empty">Escolha o condómino</span>`}</div>
+    <div class="pay">Data de pagamento: ${fmtDate(r.dataPagamento)}</div>
+    <p>Recebemos de V. Ex.ª a quantia de <b>${eur(r.total)} €</b> (${esc(extenso(r.total))}), referente a:</p>
+    <table><thead><tr><th>Descrição</th><th>Referente a</th><th class="v">Valor (€)</th></tr></thead>
+      <tbody>${r.linhas.map(l=>`<tr><td>${esc(l.d)}</td><td>${esc(fmtMes(l.periodo))}</td><td class="v">${eur(l.valor)}</td></tr>`).join("") || `<tr><td colspan="3" class="empty">Indique pelo menos um valor</td></tr>`}</tbody>
+      <tfoot><tr><td></td><td style="text-align:right">Total:</td><td class="v">${eur(r.total)}</td></tr></tfoot></table>
+    <div><b>Pagamento:</b> ${esc(r.metodo)}</div>
+    ${r.obs?`<div><b>Observações:</b> ${esc(r.obs)}</div>`:""}
+    <div class="foot">${esc(c.iva)}</div>
+    <div class="sig"><div>A Administração<br>${esc(c.adm)}</div></div>
+    <div class="adm">Administração: ${esc(c.adm)}${c.tel?` · Tel.: ${esc(c.tel)}`:""}${c.email?` · ${esc(c.email)}`:""}</div>`;
+}
+
+$("d-cond").addEventListener("change", e=>{
+  S.draft.condId=e.target.value; const c=curCond();
+  if(c){ // preencher quota e fundo de reserva com os valores do condómino
+    for(const l of S.draft.linhas){
+      if(l.d===PRESETS[0].d && !parseNum(l.valor)) l.valor=parseNum(c.quota);
+      if(l.d===PRESETS[1].d && !parseNum(l.valor)) l.valor=parseNum(c.fcr);
+    }
+  }
+  renderLines(); renderDraftMeta(); renderPreview();
+});
+$("d-data").addEventListener("input", e=>{S.draft.data=e.target.value; renderPreview();});
+$("d-metodo").addEventListener("change", e=>{S.draft.metodo=e.target.value; renderPreview();});
+$("d-obs").addEventListener("input", e=>{S.draft.obs=e.target.value; renderPreview();});
+$("d-presets").addEventListener("click", e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  const p=PRESETS.find(x=>x.k===b.dataset.k); const c=curCond();
+  let v=0; if(c && p.k==="quota") v=parseNum(c.quota); if(c && p.k==="fcr") v=parseNum(c.fcr);
+  S.draft.linhas.push(newLine(p.d,v)); renderLines(); renderDraftMeta(); renderPreview();
+  if(!p.d){ const ins=$("d-lines").querySelectorAll(".desc"); ins[ins.length-1]?.focus(); }
+});
+$("d-lines").addEventListener("input", e=>{
+  const row=e.target.closest(".line"); if(!row) return; const l=S.draft.linhas.find(x=>x.id==row.dataset.id);
+  const f=e.target.dataset.f; l[f]= f==="valor" ? e.target.value : e.target.value;
+  row.classList.toggle("zero", !(parseNum(l.valor)>0));
+  renderDraftMeta(); renderPreview();
+});
+$("d-lines").addEventListener("change", e=>{
+  if(e.target.dataset.f!=="valor") return; const row=e.target.closest(".line"); const l=S.draft.linhas.find(x=>x.id==row.dataset.id);
+  l.valor=parseNum(e.target.value); e.target.value=l.valor?eur(l.valor):"";
+});
+$("d-lines").addEventListener("click", e=>{
+  const b=e.target.closest("button[data-a]"); if(!b) return; const row=b.closest(".line"); const i=S.draft.linhas.findIndex(x=>x.id==row.dataset.id);
+  if(b.dataset.a==="del") S.draft.linhas.splice(i,1);
+  else { const l=S.draft.linhas[i]; S.draft.linhas.splice(i+1,0,newLine(l.d, parseNum(l.valor), nextMes(l.periodo||thisMonth()))); }
+  renderLines(); renderDraftMeta(); renderPreview();
+});
+
+/* ---------- PDF ---------- */
+function buildPdf(r, via){
+  const { jsPDF } = window.jspdf; const doc = new jsPDF({unit:"mm", format:"a4"});
+  const c=r.config||S.config, L=20, R=190, W=R-L; let y=24;
+  const BODY=13.5, SMALL=11;
+  doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text(`Recibo n.º ${r.numero}`, R, y, {align:"right"});
+  doc.setFont("helvetica","normal"); doc.setFontSize(SMALL);
+  doc.text(via, R, y+7, {align:"right"}); doc.text(`Emitido em ${fmtDate(r.dataEmissao)}`, R, y+12.5, {align:"right"});
+  doc.setFont("helvetica","bold"); doc.setFontSize(15);
+  const nm = doc.splitTextToSize(c.nome, 105); doc.text(nm, L, y); y += nm.length*6.5;
+  doc.setFont("helvetica","normal"); doc.setFontSize(BODY);
+  [c.morada, c.cp, `NIF: ${c.nif}`].forEach(t=>{ doc.text(t, L, y); y+=6; });
+  y += 8; const X2=108; const cond=r.condomino;
+  const toLines=["Exmo(a). Sr.(a)", cond.nome, cond.morada, cond.cp, cond.nif?`NIF: ${cond.nif}`:null, `Fração: ${cond.fracao}`].filter(Boolean);
+  toLines.forEach((t,i)=>{ doc.setFont("helvetica", i===1?"bold":"normal"); const s=doc.splitTextToSize(t, R-X2); doc.text(s, X2, y); y+=6*s.length; });
+  y += 10; doc.setFont("helvetica","bold"); doc.text(`Data de pagamento: ${fmtDate(r.dataPagamento)}`, L, y); y+=8;
+  doc.setFont("helvetica","normal");
+  const txt = doc.splitTextToSize(`Recebemos de V. Ex.ª a quantia de ${eur(r.total)} € (${extenso(r.total)}), referente a:`, W);
+  doc.text(txt, L, y); y += txt.length*6 + 6;
+  const cD=L, cP=118, cV=R;
+  doc.setFont("helvetica","bold"); doc.text("Descrição", cD, y); doc.text("Referente a", cP, y); doc.text("Valor (€)", cV, y, {align:"right"});
+  y+=2.5; doc.setLineWidth(0.5); doc.line(L, y, R, y); y+=7; doc.setFont("helvetica","normal"); doc.setLineWidth(0.2);
+  r.linhas.forEach(l=>{
+    const d=doc.splitTextToSize(l.d, cP-cD-4); doc.text(d, cD, y); doc.text(fmtMes(l.periodo), cP, y); doc.text(eur(l.valor), cV, y, {align:"right"});
+    y += 6*d.length + 1; doc.setDrawColor(190); doc.line(L, y-4, R, y-4); doc.setDrawColor(0); y+=3;
+    if(y>250){ doc.addPage(); y=24; }
+  });
+  y+=2; doc.setFont("helvetica","bold"); doc.text("Total:", cP+30, y); doc.text(`${eur(r.total)} €`, cV, y, {align:"right"}); y+=10;
+  doc.text("Pagamento:", L, y); doc.setFont("helvetica","normal"); doc.text(r.metodo, L+29, y); y+=7;
+  if(r.obs){ const o=doc.splitTextToSize(`Observações: ${r.obs}`, W); doc.text(o, L, y); y+=o.length*6+1; }
+  doc.setFontSize(SMALL); doc.setTextColor(80); doc.text(c.iva, L, y+2); doc.setTextColor(0);
+  y = Math.max(y+28, 225);
+  doc.setFontSize(BODY); doc.line(R-75, y, R, y); doc.text("A Administração", R-37.5, y+6, {align:"center"});
+  doc.setFontSize(SMALL); doc.text(c.adm, R-37.5, y+11.5, {align:"center"});
+  doc.setDrawColor(190); doc.line(L, 275, R, 275); doc.setTextColor(80);
+  doc.text(`Administração: ${c.adm}${c.tel?`  ·  Tel.: ${c.tel}`:""}${c.email?`  ·  ${c.email}`:""}`, L, 281);
+  if(r.estado==="anulado"){ doc.setTextColor(200,40,40); doc.setFontSize(60); doc.setFont("helvetica","bold");
+    doc.text("ANULADO", 105, 160, {align:"center", angle:30}); }
+  return doc.output("blob");
+}
+function fileName(r){ const nome=(r.condomino?.nome||"").split(/\s+/).filter(Boolean); const curto=[nome[0],nome[nome.length-1]].filter(Boolean).join("_");
+  const per = r.linhas[0]?.periodo || r.dataPagamento.slice(0,7);
+  return `Recibo_${r.numero}_${curto}_${per}.pdf`.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^\w.\-]/g,"_"); }
+async function offer(r, via){
+  if(!window.jspdf){ toast("O gerador de PDF não carregou. Recarregue a página."); return false; }
+  const blob=buildPdf(r, via);
+  saveFile(blob, fileName(r)); return true;
+}
+
+$("d-emit").addEventListener("click", async ()=>{
+  const err=$("d-err"); err.hidden=true;
+  const r=receiptModel(true);
+  const fail = !r.condomino ? "Escolha o condómino." : !r.linhas.length ? "Indique pelo menos um valor maior que 0." : !r.dataPagamento ? "Indique a data de pagamento." : "";
+  if(fail){ err.textContent=fail; err.hidden=false; return; }
+  const btn=$("d-emit"); btn.disabled=true;
+  try{
+    r.condomino.id = S.draft.condId; r.criadoEm = new Date().toISOString();
+    r.numero = nextNumero();
+    S.recibos = [...S.recibos, r];
+    if(!(await persist())){ S.recibos = S.recibos.filter(x=>x!==r); throw new Error("save"); }
+    await offer(r, "Original");
+    toast(`Recibo n.º ${r.numero} emitido e guardado no histórico.`);
+    S.draft.linhas.forEach(l=>{ l.valor=0; }); S.draft.condId=""; S.draft.obs="";
+    renderAll();
+  }catch(e){ err.textContent = "Não foi possível guardar o recibo online. Verifique a internet e tente outra vez."; err.hidden=false; }
+  finally{ btn.disabled=false; }
+});
+
+/* ---------- Histórico ---------- */
+let confirmAnular=null;
+function renderHist(){
+  const anos=[...new Set(S.recibos.map(r=>(r.dataPagamento||"").slice(0,4)).filter(Boolean))].sort().reverse();
+  const selA=$("h-ano"); const cur=selA.value;
+  selA.innerHTML = `<option value="">Todos</option>`+anos.map(a=>`<option${a===cur?" selected":""}>${a}</option>`).join("");
+  const q=$("h-q").value.trim().toLowerCase(), ano=selA.value;
+  const list=[...S.recibos].sort((a,b)=>b.numero-a.numero).filter(r=>
+    (!ano || (r.dataPagamento||"").startsWith(ano)) &&
+    (!q || `${r.numero} ${r.condomino?.nome} ${r.condomino?.fracao}`.toLowerCase().includes(q)));
+  const validos=S.recibos.filter(r=>r.estado!=="anulado"); const m=thisMonth(), y=m.slice(0,4);
+  const sum = a=>a.reduce((s,r)=>s+(+r.total||0),0);
+  $("h-stats").innerHTML = `
+    <div class="stat"><span>Recebido em ${MESES[+m.slice(5)-1].toLowerCase()}</span><b>${eur(sum(validos.filter(r=>(r.dataPagamento||"").startsWith(m))))} €</b></div>
+    <div class="stat"><span>Recebido em ${y}</span><b>${eur(sum(validos.filter(r=>(r.dataPagamento||"").startsWith(y))))} €</b></div>
+    <div class="stat"><span>Recibos emitidos</span><b>${S.recibos.length}</b></div>`;
+  $("h-body").innerHTML = list.map(r=>{
+    const per=[...new Set(r.linhas.map(l=>fmtMes(l.periodo)))].join(", ");
+    return `<tr data-n="${r.numero}"><td>${r.numero}</td><td>${fmtDate(r.dataPagamento)}</td><td>${esc(r.condomino?.nome)}<br><span class="hint">${esc(r.condomino?.fracao)}</span></td>
+      <td>${esc(per)}</td><td class="num">${eur(r.total)} €</td><td>${r.estado==="anulado"?`<span class="pill x">Anulado</span>`:`<span class="pill">Emitido</span>`}</td>
+      <td><div class="acts"><button class="btn sm" data-a="pdf">2.ª via PDF</button>${r.estado!=="anulado"?`<button class="btn sm danger" data-a="anular">Anular</button>`:""}</div>
+      ${confirmAnular===r.numero?`<div class="confirm">Anular o recibo n.º ${r.numero}? <button class="btn sm danger" data-a="sim">Sim, anular</button><button class="btn sm" data-a="nao">Não</button></div>`:""}</td></tr>`;
+  }).join("") || `<tr><td colspan="7" class="hint">${S.recibos.length?"Nenhum recibo corresponde à pesquisa.":"Ainda não há recibos emitidos. Os recibos que emitir aparecem aqui, com a 2.ª via sempre disponível."}</td></tr>`;
+}
+$("h-q").addEventListener("input", renderHist); $("h-ano").addEventListener("change", renderHist);
+$("h-body").addEventListener("click", async e=>{
+  const b=e.target.closest("button[data-a]"); if(!b) return; const n=+b.closest("tr").dataset.n; const r=S.recibos.find(x=>x.numero===n);
+  const a=b.dataset.a;
+  if(a==="pdf") await offer(r, r.estado==="anulado"?"Anulado":"2.ª via");
+  if(a==="anular"){ confirmAnular=n; renderHist(); }
+  if(a==="nao"){ confirmAnular=null; renderHist(); }
+  if(a==="sim"){ confirmAnular=null; r.estado="anulado"; r.anuladoEm=new Date().toISOString(); persist(); renderAll(); toast(`Recibo n.º ${n} anulado.`); }
+});
+
+/* ---------- Condóminos ---------- */
+let confirmDel=null;
+function renderCond(){
+  const list=[...S.condominos].sort((a,b)=>String(a.fracao).localeCompare(String(b.fracao),"pt"));
+  $("c-body").innerHTML = list.map(c=>`<tr data-id="${esc(c.id)}"><td>${esc(c.fracao)}</td><td>${esc(c.nome)}${c.nif?`<br><span class="hint">NIF ${esc(c.nif)}</span>`:""}</td>
+    <td class="num">${eur(c.quota)}</td><td class="num">${eur(c.fcr)}</td>
+    <td><div class="acts"><button class="btn sm" data-a="edit">Editar</button><button class="btn sm danger" data-a="del">Remover</button></div>
+    ${confirmDel===c.id?`<div class="confirm">Remover ${esc(c.nome)}? Os recibos já emitidos mantêm-se. <button class="btn sm danger" data-a="sim">Remover</button><button class="btn sm" data-a="nao">Cancelar</button></div>`:""}</td></tr>`).join("")
+    || `<tr><td colspan="5" class="hint">Ainda não há condóminos. Preencha o formulário para adicionar o primeiro.</td></tr>`;
+}
+function fillCondForm(c){
+  $("c-id").value=c?.id||""; $("c-fracao").value=c?.fracao||""; $("c-nif").value=c?.nif||""; $("c-nome").value=c?.nome||"";
+  $("c-morada").value=c?.morada||""; $("c-cp").value=c?.cp||"4445-235 Alfena"; $("c-quota").value=c?eur(c.quota):""; $("c-fcr").value=c?eur(c.fcr):"";
+  $("c-title").textContent = c ? "Editar condómino" : "Adicionar condómino"; $("c-cancel").hidden=!c;
+}
+$("c-body").addEventListener("click", async e=>{
+  const b=e.target.closest("button[data-a]"); if(!b) return; const id=b.closest("tr").dataset.id; const c=S.condominos.find(x=>x.id===id);
+  const a=b.dataset.a;
+  if(a==="edit"){ fillCondForm(c); $("c-nome").focus(); }
+  if(a==="del"){ confirmDel=id; renderCond(); }
+  if(a==="nao"){ confirmDel=null; renderCond(); }
+  if(a==="sim"){ confirmDel=null;
+    S.condominos=S.condominos.filter(x=>x.id!==id); persist(); renderAll(); toast("Condómino removido."); }
+});
+$("c-cancel").addEventListener("click", ()=>fillCondForm(null));
+$("c-form").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const id=$("c-id").value || ("c"+Date.now().toString(36));
+  const c={ fracao:$("c-fracao").value.trim(), nif:$("c-nif").value.trim(), nome:$("c-nome").value.trim(), morada:$("c-morada").value.trim(),
+    cp:$("c-cp").value.trim(), quota:parseNum($("c-quota").value), fcr:parseNum($("c-fcr").value) };
+  if(!c.nome || !c.fracao) return;
+  S.condominos=[...S.condominos.filter(x=>x.id!==id), {id,...c}]; persist();
+  fillCondForm(null); renderAll(); toast("Condómino guardado.");
+});
+
+/* ---------- Definições ---------- */
+const SF={nome:"s-nome",morada:"s-morada",cp:"s-cp",nif:"s-nif",adm:"s-adm",tel:"s-tel",email:"s-email",iva:"s-iva",numeroInicial:"s-ini"};
+function renderDef(){ for(const k in SF){ const el=$(SF[k]); if(document.activeElement!==el) el.value=S.config[k]??""; } }
+$("t-def").addEventListener("submit", async e=>{
+  e.preventDefault(); const c={}; for(const k in SF) c[k]=$(SF[k]).value.trim(); c.numeroInicial=parseInt(c.numeroInicial)||1;
+  S.config={...DEF_CONFIG,...c}; persist(); renderAll(); toast("Dados do condomínio guardados.");
+});
+
+function renderAll(){
+  $("subt").textContent = `${S.config.nome} · ${S.config.cp.replace(/^\d{4}-\d{3}\s*/,"")}`;
+  renderCondSelect(); renderLines(); renderDraftMeta(); renderPreview();
+  if(S.tab==="hist") renderHist(); if(S.tab==="cond") renderCond(); if(S.tab==="def") renderDef();
+}
+renderPresets(); fillCondForm(null);
+try{ const t=localStorage.getItem("rec-tab"); if(t && t!=="novo") document.querySelector(`.tabs button[data-tab="${t}"]`)?.click(); }catch(e){}
+renderAll();
+
+/* ---------- Dados online (Firebase, cifrados) ---------- */
+async function loadStore(){
+  try{ const snap=await REF.get(); if(!snap.exists){ VERSAO=0; return; }
+    VERSAO=snap.data().versao||0;
+    const d=await dec(snap.data().cifrado);
+    S.config={...DEF_CONFIG,...(d.config||{})}; S.condominos=Array.isArray(d.condominos)?d.condominos:[]; S.recibos=Array.isArray(d.recibos)?d.recibos:[];
+  }catch(e){ banner("Não foi possível ler os dados online. Verifique a internet e recarregue a página.", true); }
+}
+document.body.classList.add("locked");
+try{ FB={ app:firebase.initializeApp(FIREBASE_CONFIG) }; FB.auth=firebase.auth(); FB.db=firebase.firestore();
+  FB.auth.setPersistence(firebase.auth.Auth.Persistence.SESSION); REF=FB.db.doc("condominio/principal"); }
+catch(e){ $("lock-err").textContent="O site não está configurado (Firebase)."; $("lock-err").hidden=false; }
+$("lock-email").focus();
+$("lock-form").addEventListener("submit", async e=>{
+  e.preventDefault(); const err=$("lock-err"), btn=$("lock-btn"); err.hidden=true; btn.disabled=true; btn.textContent="A verificar…";
+  const fail=(m,el)=>{ btn.disabled=false; btn.textContent="Entrar"; err.textContent=m; err.hidden=false; el?.select(); };
+  const k=await derive($("lock-pin").value.trim());
+  if(!k) return fail("Código de acesso errado.", $("lock-pin"));
+  try{ await FB.auth.signInWithEmailAndPassword($("lock-email").value.trim(), $("lock-pass").value); }
+  catch(e){ return fail(e.code==="auth/network-request-failed"?"Sem internet. Tente outra vez.":"Email ou palavra-passe errados.", $("lock-pass")); }
+  AESKEY=k; $("lock-pin").value=""; $("lock-pass").value=""; await loadStore(); renderAll();
+  btn.disabled=false; btn.textContent="Entrar";
+  $("lock").remove(); document.body.classList.remove("locked"); armIdle();
+});
+const lockNow=async()=>{ AESKEY=null; try{ await FB?.auth.signOut(); }catch(_){} location.reload(); };
+$("b-lock").addEventListener("click", lockNow);
+let idleT; function armIdle(){ clearTimeout(idleT); idleT=setTimeout(lockNow, 15*60*1000); }
+["click","keydown","pointermove"].forEach(ev=>document.addEventListener(ev,()=>{ if(AESKEY) armIdle(); },{passive:true}));
+renderAll();
+
+$("b-exp").addEventListener("click", async ()=>{
+  const d={app:"recibos-condominio", versao:2, exportadoEm:new Date().toISOString(), cifrado:await enc({config:S.config, condominos:S.condominos, recibos:S.recibos})};
+  saveFile(new Blob([JSON.stringify(d,null,2)],{type:"application/json"}), `copia-recibos-${today()}.json`);
+  toast("Cópia de segurança exportada.");
+});
+let pendingImport=null;
+$("b-imp").addEventListener("click", ()=>$("b-file").click());
+$("b-file").addEventListener("change", async e=>{
+  const f=e.target.files[0]; e.target.value=""; if(!f) return;
+  try{ let d=JSON.parse(await f.text()); if(d.app!=="recibos-condominio") throw 0; if(d.cifrado) d=await dec(d.cifrado); pendingImport=d; }
+  catch(_){ toast("Este ficheiro não é uma cópia de segurança dos recibos."); return; }
+  const c=$("b-confirm");
+  c.innerHTML=`Importar ${pendingImport.condominos?.length||0} condómino(s) e ${pendingImport.recibos?.length||0} recibo(s)? Os dados atuais deste navegador são substituídos. <button class="btn sm danger" type="button" data-a="sim">Importar</button><button class="btn sm" type="button" data-a="nao">Cancelar</button>`;
+  c.hidden=false;
+});
+$("b-confirm").addEventListener("click", e=>{
+  const b=e.target.closest("button[data-a]"); if(!b) return; const c=$("b-confirm"); c.hidden=true;
+  if(b.dataset.a==="sim" && pendingImport){
+    const d=pendingImport;
+    S.config={...DEF_CONFIG,...(d.config||{})}; S.condominos=d.condominos||[]; S.recibos=d.recibos||[];
+    persist(); renderAll(); toast("Cópia de segurança importada.");
+  }
+  pendingImport=null;
+});
+})();
+</script>
+
+</body></html>
